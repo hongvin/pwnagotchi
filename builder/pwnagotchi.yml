@@ -94,14 +94,14 @@
           - libnetfilter-queue-dev
           - libopenmpi3
           - dphys-swapfile
-          # - kalipi-kernel
-          # - kalipi-bootloader
-          # - kalipi-re4son-firmware
-          # - kalipi-kernel-headers
-          # - libraspberrypi0
-          # - libraspberrypi-dev
-          # - libraspberrypi-doc
-          # - libraspberrypi-bin
+          - kalipi-kernel
+          - kalipi-bootloader
+          - kalipi-re4son-firmware
+          - kalipi-kernel-headers
+          - libraspberrypi0
+          - libraspberrypi-dev
+          - libraspberrypi-doc
+          - libraspberrypi-bin
           - fonts-dejavu
           - fonts-dejavu-core
           - fonts-dejavu-extra
@@ -117,7 +117,6 @@
           - autoconf    # think this is needed for go building
           - libtool     # think this is needed for go building
           - make        # think this is needed for go building
-          - raspberrypi-kernel-headers
           - binutils
           - aircrack-ng
 
@@ -143,26 +142,26 @@
       line: 'ExecStart=/usr/lib/bluetooth/bluetoothd --noplugin=sap'
       state: present
 
-  # - name: Add re4son-kernel repo key
-  #   apt_key:
-  #     id: "11764EE8AC24832F" # Shows on re4son-kernel website as old key
-  #     keyserver: "keyserver.ubuntu.com"
-  #     state: present
+  - name: Add re4son-kernel repo key
+    apt_key:
+      id: "11764EE8AC24832F" # Shows on re4son-kernel website as old key
+      keyserver: "keyserver.ubuntu.com"
+      state: present
 
-  # - name: Add re4son-kernel repository
-  #   apt_repository:
-  #     repo: deb http://http.re4son-kernel.com/re4son/ kali-pi main
-  #     state: present
+  - name: Add re4son-kernel repository
+    apt_repository:
+      repo: deb http://http.re4son-kernel.com/re4son/ kali-pi main
+      state: present
 
-  # - name: create /etc/apt/preferences.d/kali.pref
-  #   copy:
-  #     dest: /etc/apt/preferences.d/kali.pref
-  #     force: yes
-  #     content: |
-  #       # ensure kali packages that are installed take precedence
-  #       Package: *
-  #       Pin: release n=kali-pi
-  #       Pin-Priority: 999
+  - name: create /etc/apt/preferences.d/kali.pref
+    copy:
+      dest: /etc/apt/preferences.d/kali.pref
+      force: yes
+      content: |
+        # ensure kali packages that are installed take precedence
+        Package: *
+        Pin: release n=kali-pi
+        Pin-Priority: 999
 
   - name: add firmware packages to hold
     dpkg_selections:
