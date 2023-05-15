@@ -1,0 +1,37 @@
+name: Test
+
+on: 
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    name: Test
+    runs-on: ubuntu-latest
+    if: ${{contains(github.event.head_commit.message, '[Release]')}}
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Clean the directory structure
+        run: sudo make clean
+
+      - name: Build pwnagotchi image
+        run: sudo make image
+
+      - name: Get version number
+        id: getversion
+        run: echo "version=$(cut -d"'" -f2 < pwnagotchi/_version.py)" >> $GITHUB_OUTPUT
+
+      - name: Create and publish release with the built image
+        uses: softprops/action-gh-release@v0.1.15
+        with:
+            name: Version ${{steps.getversion.outputs.version}}
+            body_path: CHANGELOG.md
+            token: ${{secrets.RELEASE_TOKEN}}
+            tag_name: v${{steps.getversion.outputs.version}}
+            prerelease: false
+            draft: false
+            files: |
+              pwnagotchi-raspios-lite-${{steps.getversion.outputs.version}}.sha256
+              pwnagotchi-raspios-lite-${{steps.getversion.outputs.version}}.zip
