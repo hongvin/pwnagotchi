@@ -18,7 +18,6 @@ pwnagotchi.egg-info
 *backup*.tgz
 *backup*.gz
 .vscode
-.github/workflows/buildonrelease.yml
 
 # Environments
 .env
