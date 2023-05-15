@@ -1,4 +1,4 @@
-name: Test
+name: Build image and release
 
 on: 
   push:
@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    name: Test
+    name: Build image and release
     runs-on: ubuntu-latest
     if: ${{contains(github.event.head_commit.message, '[Release]')}}
     steps:
@@ -23,7 +23,7 @@ jobs:
         id: getversion
         run: echo "version=$(cut -d"'" -f2 < pwnagotchi/_version.py)" >> $GITHUB_OUTPUT
 
-      - name: Create and publish release with the built image
+      - name: Create and publish release with the built image and sha256 hash
         uses: softprops/action-gh-release@v0.1.15
         with:
             name: Version ${{steps.getversion.outputs.version}}
