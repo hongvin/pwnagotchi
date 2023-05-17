@@ -18,6 +18,8 @@ pwnagotchi.egg-info
 *backup*.tgz
 *backup*.gz
 .vscode
+.prettierignore
+.prettierrc.json
 
 # Environments
 .env
