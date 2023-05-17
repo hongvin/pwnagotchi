@@ -1,9 +1,8 @@
 maintainers:
- - evilsocket
- - caquino
- - justin-p
- 
+  - evilsocket
+  - caquino
+  - justin-p
+
 features:
- - comments
- - pr_description_required
- 
+  - comments
+  - pr_description_required

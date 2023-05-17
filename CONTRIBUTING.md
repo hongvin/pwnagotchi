@@ -4,12 +4,12 @@
 
 Here are a few guidelines for contributing:
 
-* If you would like to contribute to the codebase **please raise an issue to propose the change**
-* Do not mix feature changes or fixes with refactoring - it makes the code harder to review and means there is more for the maintainers (with limited time) to test
+-   If you would like to contribute to the codebase **please raise an issue to propose the change**
+-   Do not mix feature changes or fixes with refactoring - it makes the code harder to review and means there is more for the maintainers (with limited time) to test
 
-* If you have found a bug please raise an issue and fill out the whole template.
-* If the documentation can be improved / translated etc please raise an issue to discuss.
-* Please always provide a summary of what you changed, how you did it and how it can be tested.
+-   If you have found a bug please raise an issue and fill out the whole template.
+-   If the documentation can be improved / translated etc please raise an issue to discuss.
+-   Please always provide a summary of what you changed, how you did it and how it can be tested.
 
 ### License
 
@@ -68,4 +68,4 @@ Then you just add a line to every git commit message:
 If you set your `user.name` and `user.email` git configs, you can sign your
 commit automatically with `git commit -s`.
 
-* Please sign your commits with `git commit -s` so that commits are traceable.
+-   Please sign your commits with `git commit -s` so that commits are traceable.

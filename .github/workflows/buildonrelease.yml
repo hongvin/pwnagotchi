@@ -1,6 +1,6 @@
 name: Build image and release
 
-on: 
+on:
   push:
     branches:
       - master
@@ -26,12 +26,12 @@ jobs:
       - name: Create and publish release with the built image and sha256 hash
         uses: softprops/action-gh-release@v0.1.15
         with:
-            name: Version ${{steps.getversion.outputs.version}}
-            body_path: CHANGELOG.md
-            token: ${{secrets.RELEASE_TOKEN}}
-            tag_name: v${{steps.getversion.outputs.version}}
-            prerelease: false
-            draft: false
-            files: |
-              pwnagotchi-raspios-lite-${{steps.getversion.outputs.version}}.sha256
-              pwnagotchi-raspios-lite-${{steps.getversion.outputs.version}}.zip
+          name: Version ${{steps.getversion.outputs.version}}
+          body_path: CHANGELOG.md
+          token: ${{secrets.RELEASE_TOKEN}}
+          tag_name: v${{steps.getversion.outputs.version}}
+          prerelease: false
+          draft: false
+          files: |
+            pwnagotchi-raspios-lite-${{steps.getversion.outputs.version}}.sha256
+            pwnagotchi-raspios-lite-${{steps.getversion.outputs.version}}.zip
