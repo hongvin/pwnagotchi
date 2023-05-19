@@ -41,7 +41,7 @@ def set_name(new_name):
             fp.write(patched)
 
         os.system("hostname '%s'" % new_name)
-        pwnagotchi.reboot()
+        reboot()
 
 
 def name():
@@ -119,7 +119,7 @@ def shutdown():
     from pwnagotchi import fs
     for m in fs.mounts:
         m.sync()
- 
+
     os.system("sync")
     os.system("halt")
 
