@@ -13,8 +13,14 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Install language dependencies
+        run: sudo apt-get install -y gettext
+
       - name: Clean the directory structure
         run: sudo make clean
+
+      - name: Build/Compile the languages
+        run: sudo make langs
 
       - name: Build pwnagotchi image
         run: sudo make image
