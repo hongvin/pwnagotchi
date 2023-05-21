@@ -43,7 +43,7 @@ stop_monitor_interface() {
   ifconfig mon0 down && iw dev mon0 del && ifconfig wlan0 up
 }
 
-# returns 0 if the specificed network interface is up
+# returns 0 if the specified network interface is up
 is_interface_up() {
   if [[ $(ip a show $1 up) ]]; then
     return 0
